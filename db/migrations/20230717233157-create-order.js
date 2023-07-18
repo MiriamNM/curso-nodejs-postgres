@@ -2,13 +2,12 @@
 
 const { OrderSchema, ORDER_TABLE } = require('./../models/order.model');
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface) {
+  up: async (queryInterface) => {
     await queryInterface.createTable(ORDER_TABLE, OrderSchema);
   },
 
-  async down(queryInterface) {
-    await queryInterface.drop(ORDER_TABLE);
+  down: async (queryInterface) => {
+    await queryInterface.dropTable(ORDER_TABLE);
   },
 };
